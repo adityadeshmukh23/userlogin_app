@@ -1,10 +1,12 @@
+//importing the required packages as required
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//actually main fn is entry point in appliction
 void main() {
   runApp(MyApp());
 }
-
+// my app is stateless widget,and it returns material app widget which is root of widget tree 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+//this is responsible to take input from the user so that it can be shown further.
 class UserDetailsInputPage extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -22,6 +24,7 @@ class UserDetailsInputPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //this is basically the interface that is being set default
     return Scaffold(
       appBar: AppBar(
         title: Text('User Information'),
@@ -68,6 +71,7 @@ class UserDetailsInputPage extends StatelessWidget {
               onPressed: () {
                 _navigateToUserDetails(context);
               },
+              //button is created so that we can access the info provided
               child: Text('Show Details'),
               style: ElevatedButton.styleFrom(
                 primary: Color.fromARGB(255, 175, 168, 76),
@@ -80,7 +84,7 @@ class UserDetailsInputPage extends StatelessWidget {
       ),
     );
   }
-
+// this is responsible for generating the information that was given by user after clicking on show details.
   void _navigateToUserDetails(BuildContext context) {
     Navigator.push(
       context,
@@ -98,7 +102,7 @@ class UserDetailsInputPage extends StatelessWidget {
       }
     });
   }
-
+// this feature deals with the logout message which has to be displayed on app after clicking on logout button
   void _showLogoutDialog(BuildContext context, String username) {
     showDialog(
       context: context,
@@ -119,7 +123,7 @@ class UserDetailsInputPage extends StatelessWidget {
     );
   }
 }
-
+// this displays the name,email,roolno and phone no that we stored above 
 class UserDetailsPage extends StatelessWidget {
   final String name;
   final String email;
@@ -132,7 +136,7 @@ class UserDetailsPage extends StatelessWidget {
     required this.rollNo,
     required this.phoneNumber,
   });
-
+// additionally i had used goglefonts to create or generate fonts in stylish way , to improve ui at some extent (this i have read from here https://pub.dev/packages/google_fonts)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
